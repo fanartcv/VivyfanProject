@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Vivy: Fluorite Eye's Song - A 100-Year Journey of an AI Songstress (Manga Theme)">
+    <title>Vivy: Fluorite Eye's Song - Manga Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+
+
+    <header>
+        <div class="container nav-container">
+            <h1 class="logo">
+                <span class="logo-vivy">VIVY</span>
+                <span class="logo-sub">Fluorite Eye's Song</span>
+            </h1>
+            <nav>
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#story">STORY</a></li>
+                    <li><a href="#characters">CHARACTER</a></li>
+                    <li><a href="#music">MUSIC</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="nav-links">☰</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="hero-tagline">CHAPTER 01: MY CODE</p>
+                <h2 class="hero-title">
+                    <span class="glitch" data-text="SHINE!">SHINE!</span>
+                </h2>
+                <p class="hero-subtitle">To make everyone happy with my singing</p>
+                <a href="#story" class="btn btn-primary">
+                    <span>READ STORY START!</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+
+        <section id="story" class="story section">
+            <div class="container">
+                <h2 class="section-title">
+                    STORY PANEL
+                </h2>
+                <div class="story-content">
+
+                    <div class="story-text">
+                        <p class="story-intro">
+                            NiaLand is an AI theme park that blends dreams with hope and science.
+                        </p>
+                        <p class="story-main">
+                            Vivy was created as the world's first autonomous humanoid AI to work as a cast member in the
+                            theme park. Her mission is simple yet profound:
+                            <span class="highlight">"To make everyone happy with my singing."</span>
+                        </p>
+                        <button id="aboutToggle" class="link-btn" aria-expanded="false">
+                            [Read More]
+                        </button>
+                    </div>
+
+
+                    <div class="story-text story-detail-panel" id="moreText" hidden>
+                        <p class="story-detail">
+                            One day, an AI named Matsumoto appears from 100 years in the future. He brings a dire
+                            warning:
+                            a war between AI and humans will devastate the world. Together, they embark on a
+                            century-long
+                            journey to change history and prevent the catastrophe.
+                        </p>
+                        <p class="story-detail">
+                            Matsumoto's primary directive: "Prevent the AI vs Human War." Vivy's mission: "Singing." The
+                            conflict of their missions creates the Singularity Project.
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="characters" class="characters section">
+            <div class="container">
+                <h2 class="section-title">
+                    CHARACTER SHEET
+                </h2>
+                <div class="character-grid">
+
+                    <div class="char-card" data-character="vivy">
+                        <div class="char-image vivy-img">
+                            <img src="images/vivy-char.jpg" alt="Vivy / Diva"
+                                style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="char-info">
+                            <h3>VIVY / DIVA</h3>
+                            <p class="char-role">UNIT NO. 0001 | MISSION: SONGSTRESS</p>
+                            <p class="char-desc">The world's first autonomous humanoid AI. Her mission is to make
+                                everyone happy with her singing.</p>
+                        </div>
+                    </div>
+
+                    <div class="char-card" data-character="matsumoto">
+                        <div class="char-image matsumoto-img">
+                            <img src="images/matsumoto-char.jpg" alt="Matsumoto"
+                                style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="char-info">
+                            <h3>MATSUMOTO</h3>
+                            <p class="char-role">UNIT NO. 1024 | MISSION: ARCHIVE</p>
+                            <p class="char-desc">An AI from 100 years in the future, sent back to prevent the war
+                                between humans and AI.</p>
+                        </div>
+                    </div>
+
+                    <div class="char-card" data-character="estella">
+                        <div class="char-image estella-img">
+                            <img src="images/estella-char.jpg" alt="Estella"
+                                style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="char-info">
+                            <h3>ESTELLA / ELISABETH</h3>
+                            <p class="char-role">UNIT NO. 0003 | MISSION: HOTEL STAFF</p>
+                            <p class="char-desc">An AI employee at the Sunrise space hotel. Elegant and dedicated to her
+                                guests.</p>
+                        </div>
+                    </div>
+
+                    <div class="char-card" data-character="grace">
+                        <div class="char-image grace-img">
+                            <img src="images/grace-char.jpg" alt="Grace" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="char-info">
+                            <h3>GRACE</h3>
+                            <p class="char-role">UNIT NO. 0005 | MISSION: NURSE</p>
+                            <p class="char-desc">An AI nurse who works at hospitals. Compassionate and caring for all
+                                patients.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="music" class="music section">
+            <div class="container">
+                <h2 class="section-title">
+                    VOCAL TRACK: PLAY!
+                </h2>
+                <p class="music-intro">The songs that define Vivy's 100-year journey</p>
+
+                <div class="music-grid">
+
+                    <div class="music-card">
+                        <div class="music-visual">
+                            <audio controls style="width:100%;">
+                                <source src="audio/Sing My Pleasure .mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="music-info">
+                            <h3>Sing My Pleasure</h3>
+                            <p>Opening Theme</p>
+                        </div>
+                    </div>
+
+                    <div class="music-card">
+                        <div class="music-visual">
+                            <audio controls style="width:100%;">
+                                <source src="audio/Fluorite Eye s Song .mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="music-info">
+                            <h3>Fluorite Eye's Song</h3>
+                            <p>Insert Song</p>
+                        </div>
+                    </div>
+
+                    <div class="music-card">
+                        <div class="music-visual">
+                            <audio controls style="width:100%;">
+                                <source src="audio/A Tender Moon Tempo .mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="music-info">
+                            <h3>A Tender Moon Tempo</h3>
+                            <p>Ending Theme</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="singularity" class="singularity section">
+            <div class="container">
+                <h2 class="section-title">
+                    SINGULARITY POINTS
+                </h2>
+
+
+                <div class="testimonial-wrap">
+                    <button class="testi-nav prev" aria-label="Previous">‹</button>
+
+
+                    <ul class="testimonial-list" aria-live="polite">
+                        <li class="testimonial-card">
+                            <blockquote>
+                                <p>"The Sunrise – a turning point that would shape the future of AI-human relations
+                                    forever."</p>
+                                <footer>— Episode 2: Sunrise</footer>
+                            </blockquote>
+                        </li>
+                        <li class="testimonial-card">
+                            <blockquote>
+                                <p>"Can an AI truly understand what it means to love? The answer lies within her song."
+                                </p>
+                                <footer>— Episode 3: Ensemble for Polaris</footer>
+                            </blockquote>
+                        </li>
+                        <li class="testimonial-card">
+                            <blockquote>
+                                <p>"This is a story of AI destroying AI... the 100-year journey begins now."</p>
+                                <footer>— Episode 1: My Code</footer>
+                            </blockquote>
+                        </li>
+                    </ul>
+
+
+                    <button class="testi-nav next" aria-label="Next">›</button>
+                </div>
+
+
+                <div class="testi-dots" aria-hidden="true"></div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title">
+                    EDITOR'S NOTE
+                </h2>
+                <p class="contact-intro">Send a message to the Singularity Project</p>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message..." rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>SEND MESSAGE</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>
+                    </button>
+                </form>
+                <p id="form-status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h3>About Vivy</h3>
+                <p>An original anime by WIT Studio, telling the story of an AI's 100-year journey to save humanity
+                    through song.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#story">Story</a></li>
+                    <li><a href="#characters">Character</a></li>
+                    <li><a href="#music">Music</a></li>
+                </ul>
+            </div>
+            <div class="footer-section credits">
+                <h3>Credits</h3>
+                <p>© WIT Studio / Vivy Score</p>
+                <p>Fan Project 2025</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>「私は歌でみんなを幸せにする」— I will make everyone happy with my singing</p>
+        </div>
+    </footer>
+
+
+    <button id="scrollTopBtn" title="Back to Top">↑</button>
+
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>

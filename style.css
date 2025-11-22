@@ -1,0 +1,834 @@
+﻿/* ====================================
+   VIVY MANGA / WEBTOON THEME
+   Palette: Black (#000000), White (#FFFFFF), Dramatic Red (#FF4500)
+   ==================================== */
+
+
+/* CSS Variables */
+:root {
+    --bg-light: #FFFFFF;
+    --bg-dark: #000000;
+    --bg-paper: #f7f7f7; /* Latar belakang kertas bertekstur */
+    
+    --primary: #0051ff;       /* Dramatic Red / Scarlet */
+    --secondary: #00BFFF;     /* Deep Sky Blue / Cyan Accent */
+    
+    --text-dark: #000000;
+    --text-light: #FFFFFF;
+    
+    --border-thick: 4px solid var(--text-dark);
+    --border-medium: 2px solid var(--text-dark);
+    
+    --font-display: 'Bangers', cursive; /* Gaya Komik SFX */
+    --font-body: 'Montserrat', sans-serif; /* Gaya Dialog Bersih */
+    --font-mono: 'Courier New', monospace; /* Untuk data statistik */
+    
+    --transition-fast: 0.1s linear; /* Transisi cepat seperti membalik halaman */
+    --transition-normal: 0.3s ease;
+}
+
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-paper);
+    color: var(--text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* --- Manga Texture Base (Optional: Hapus jika tidak ingin ada tekstur) --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Tekstur dot screen/kertas */
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 5px
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ====================================
+   HEADER & NAVIGATION
+   ==================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-light);
+    border-bottom: var(--border-medium);
+    padding: 0.5rem 0;
+    z-index: 1000;
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    display: block;
+    line-height: 1;
+    margin: 0;
+    padding: 0.2rem 0;
+}
+
+
+.logo-vivy {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: var(--text-dark);
+    text-shadow: 2px 2px 0 var(--bg-light), -2px -2px 0 var(--bg-light), 2px -2px 0 var(--bg-light), -2px 2px 0 var(--bg-light);
+    -webkit-text-stroke: 1px var(--text-dark); /* Garis luar hitam */
+}
+
+
+.logo-sub {
+    display: none; /* Subtitle dihilangkan agar lebih fokus seperti logo komik */
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+
+.nav-links li {
+    background: var(--bg-light);
+    border: var(--border-medium);
+    transform: skew(-10deg); /* Efek tab komik miring */
+    margin-right: -10px;
+}
+
+
+.nav-links a {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    transform: skew(10deg); /* Mengembalikan kemiringan teks */
+}
+
+
+.nav-links a:hover {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+
+.menu-btn {
+    display: none;
+    /* Styling menu button sebagai kotak aksi */
+    background: var(--primary);
+    border: var(--border-medium);
+    color: var(--text-light);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    padding: 0 0.7rem 0.2rem;
+    cursor: pointer;
+}
+
+
+/* ====================================
+   HERO SECTION (FULL BLEED PANEL)
+   ==================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--bg-paper);
+    padding-top: 5rem;
+    overflow: hidden;
+}
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Filter Screentone (Dots) pada area visual (simulasi) */
+    background: 
+        radial-gradient(rgba(0,0,0,0.1) 10%, transparent 10%),
+        repeating-radial-gradient(rgba(0,0,0,0.1) 10%, transparent 10%);
+    background-size: 10px 10px;
+    pointer-events: none;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    /* Kontainer teks bergaya Balon Dialog (Sederhana) */
+    background: rgba(255, 255, 255, 0.8); 
+    border: var(--border-thick);
+    padding: 20px 30px;
+    box-shadow: 8px 8px 0 var(--text-dark); /* Efek pop-out komik */
+    max-width: 600px;
+    transform: rotate(-2deg);
+}
+
+
+.hero-tagline {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: 5px;
+    margin-bottom: 1rem;
+    color: var(--primary); /* SFX Merah */
+    -webkit-text-stroke: 3px var(--text-dark); /* Outline dramatis */
+    text-shadow: 5px 5px 0 var(--text-dark);
+    transform: scaleY(1.2); /* Efek SFX Squashed */
+}
+
+
+.glitch {
+    color: var(--primary); 
+    background: none;
+    -webkit-text-fill-color: var(--primary);
+}
+
+
+/* Menonaktifkan animasi glitch agar fokus ke SFX style */
+.glitch::before,
+.glitch::after {
+    content: none;
+    animation: none;
+    clip-path: none;
+}
+
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+
+/* Buttons (CTA bertema aksi) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding: 0.5rem 1.5rem 0.6rem;
+    border: var(--border-thick);
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--text-light);
+    box-shadow: 4px 4px 0 var(--text-dark);
+}
+
+
+.btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--text-dark);
+    /* Tambahkan garis kecepatan (simulasi) */
+    outline: 2px dashed var(--secondary);
+    outline-offset: 4px;
+}
+
+
+/* ====================================
+   SECTIONS & PANELS
+   ==================================== */
+.section {
+    padding: 80px 0;
+    position: relative;
+    background: var(--bg-light);
+    border-top: var(--border-medium);
+}
+
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 5px;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    -webkit-text-stroke: 1px var(--bg-light); 
+    text-shadow: 3px 3px 0 var(--primary); /* Efek judul bab manga */
+    transform: rotate(1deg);
+}
+
+
+/* Judul Garis Dihilangkan agar fokus ke judul SFX */
+.title-line {
+    display: none;
+}
+
+
+/* ====================================
+   STORY SECTION (VERTICAL MANGA PANELS)
+   ==================================== */
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 40px;
+    margin-top: 40px;
+}
+
+
+.story-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+.story-intro, .story-main, .story-detail {
+    background: var(--bg-light);
+    border: var(--border-thick);
+    padding: 20px;
+    margin-bottom: 20px;
+    transform: rotate(0.5deg); /* Panel miring halus */
+}
+
+
+.highlight {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+
+.link-btn {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--primary);
+}
+
+
+/* Timeline/Visual Dihilangkan diganti dengan panel */
+.story-visual, .timeline {
+    display: none;
+}
+
+
+/* ====================================
+   CHARACTERS SECTION (CHARACTER SHEETS)
+   ==================================== */
+.characters {
+    background: var(--bg-paper);
+    border-top: var(--border-thick);
+}
+
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.char-card {
+    position: relative;
+    background: var(--bg-light);
+    border: var(--border-medium);
+    padding: 20px;
+    text-align: left;
+    overflow: hidden;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--text-dark);
+}
+
+
+.char-card:hover {
+    transform: scale(1.03);
+    border-color: var(--primary);
+    box-shadow: 6px 6px 0 var(--primary);
+}
+
+
+.char-glow {
+    /* Dihilangkan agar tidak terlalu sci-fi */
+    display: none;
+}
+
+
+.char-image {
+    width: 100%;
+    height: 150px;
+    margin: 0 auto 15px;
+    border: var(--border-medium);
+    background: #e0e0e0; /* Background sketsa/abu-abu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: normal;
+    color: var(--text-dark);
+    transform: rotate(-1deg);
+    /* Tambahkan Dot Screen effect pada gambar karakter (simulasi) */
+    background-image: radial-gradient(circle, rgba(0,0,0,0.5) 1px, transparent 1px);
+    background-size: 5px 5px;
+}
+/* Meniru mata Vivy/detail penting dengan warna Cyan */
+.vivy-img, .estella-img, .grace-img {
+    color: var(--secondary); 
+    -webkit-text-stroke: 1px var(--text-dark);
+}
+.matsumoto-img {
+    color: var(--primary);
+    -webkit-text-stroke: 1px var(--text-dark);
+}
+
+
+
+
+.char-info h3 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    border-bottom: var(--border-medium);
+    padding-bottom: 5px;
+}
+
+
+.char-role {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-family: var(--font-mono); /* Font Monospace untuk data */
+}
+
+
+.char-desc {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+
+/* ====================================
+   MUSIC SECTION (SFX Style)
+   ==================================== */
+.music {
+    background: var(--bg-light);
+    border-top: var(--border-thick);
+}
+
+
+.music-intro {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 3rem;
+    /* Efek SFX PLAY! */
+    -webkit-text-stroke: 1px var(--text-dark);
+    text-shadow: 2px 2px 0 var(--text-dark);
+}
+
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+.music-card {
+    background: var(--bg-paper);
+    border: var(--border-medium);
+    padding: 20px;
+    text-align: center;
+    transition: all var(--transition-fast);
+    transform: rotate(-0.5deg);
+}
+
+
+.music-card:hover {
+    transform: rotate(0.5deg) scale(1.05);
+    box-shadow: 4px 4px 0 var(--secondary);
+}
+
+
+.music-visual {
+    margin-bottom: 15px;
+    height: 50px;
+    /* Garis Kecepatan di latar belakang visual musik */
+    background: repeating-linear-gradient(
+        90deg,
+        var(--secondary) 0%,
+        var(--secondary) 1px,
+        transparent 1px,
+        transparent 10px
+    );
+}
+
+
+.music-waves {
+    display: none; /* Dihilangkan, diganti garis kecepatan */
+}
+
+
+.music-info h3 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+
+.music-info p {
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-family: var(--font-mono);
+}
+
+
+/* ====================================
+   SINGULARITY (TESTIMONIALS - NARATION BUBBLES)
+   ==================================== */
+.singularity {
+    background: var(--bg-paper);
+    border-top: var(--border-thick);
+}
+
+
+.testimonial-card {
+    border: var(--border-medium);
+    border-radius: 15px 15px 15px 0; /* Bentuk Balon Narasi */
+    background: var(--bg-light);
+    transform: rotate(1deg);
+}
+
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    font-style: normal; /* Bukan italic */
+    font-weight: 600;
+}
+
+
+.testimonial-card footer {
+    margin-top: 0.5rem;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+
+.testi-nav {
+    border: var(--border-medium);
+    background: var(--secondary);
+    color: var(--text-light);
+    box-shadow: 2px 2px 0 var(--text-dark);
+}
+
+
+.testi-nav:hover {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+
+/* ====================================
+            CONTACT SECTION 
+   ==================================== */
+
+.contact-intro {
+    text-align: center; 
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    /* Frame Komik Tebal */
+    border: 6px solid var(--text-dark);
+    /* Garis border sangat tebal */
+    padding: 30px;
+    background: var(--bg-paper);
+    box-shadow: 10px 10px 0 var(--primary);
+    /* Shadow merah yang sangat menonjol */
+    transform: rotate(-1deg);
+    /* Sedikit miring untuk efek dramatis */
+}
+
+.form-group {
+    position: relative;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-light);
+
+    /* Garis standar */
+    border: var(--border-medium);
+    /* 2px solid #000000 */
+    border-radius: 0;
+
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+/* TEXTAREA (KOTAK MESSAGE) */
+textarea {
+    /* Menerapkan border paling tebal di formulir */
+    border: var(--border-thick);
+    /* 4px solid #000000 */
+    resize: vertical;
+    min-height: 150px;
+    box-shadow: 4px 4px 0 var(--text-dark);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #eaffff;
+    box-shadow: 6px 6px 0 var(--secondary);
+    transform: translate(-1px, -1px);
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #666;
+    font-weight: 600;
+}
+
+form .btn {
+    align-self: center;
+}
+
+#form-status {
+    color: var(--primary);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ====================================
+   FOOTER (MANGAKA'S NOTES)
+   ==================================== */
+footer {
+    background: var(--bg-dark);
+    border-top: var(--border-thick);
+    padding-top: 40px;
+}
+
+
+.footer-content {
+    color: var(--text-light);
+}
+
+
+.footer-section h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+    margin-bottom: 1rem;
+}
+
+
+.footer-section a {
+    color: var(--text-light);
+}
+
+
+.footer-section a:hover {
+    color: var(--secondary);
+}
+
+
+.footer-bottom {
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.footer-bottom p {
+    color: #aaa;
+    font-family: var(--font-body);
+}
+
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    background: var(--primary);
+    color: var(--text-light);
+    border: var(--border-medium);
+    box-shadow: 3px 3px 0 var(--text-dark);
+    font-family: var(--font-mono);
+}
+
+
+#scrollTopBtn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--text-dark);
+}
+
+
+/* ====================================
+   RESPONSIVE (Mobile Manga Index)
+   ==================================== */
+@media (max-width: 768px) {
+    
+    .nav-links {
+        /* Disembunyikan untuk Mobile, diganti Hamburger Menu */
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-light);
+        border-bottom: var(--border-thick);
+        z-index: 900;
+        padding: 1rem;
+        box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active li {
+        margin: 0.5rem 0;
+        border: none;
+        transform: none;
+        border-bottom: 1px dashed var(--text-dark);
+        padding-bottom: 0.5rem;
+    }
+
+
+    .nav-links.active a {
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        transform: none;
+        text-align: left;
+        color: var(--text-dark);
+        font-weight: 700;
+        border: none;
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+    
+    .hero {
+        height: 80vh;
+        padding-top: 4rem;
+    }
+    
+    .hero-content {
+        max-width: 90%;
+        padding: 15px;
+        transform: rotate(0);
+        box-shadow: 4px 4px 0 var(--text-dark);
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 3px;
+        -webkit-text-stroke: 2px var(--text-dark);
+    }
+
+
+    .section-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
